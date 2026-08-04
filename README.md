@@ -46,25 +46,20 @@ All deals live in **`data/deals.json`**. It's a structured list of **brands** (c
 
 ```json
 {
-  "lastUpdated": "2026-08-04",
+  "weekOf": "2026-08-03",
+  "featuredSupplier": "Royal Caribbean International",
   "brands": [
     {
-      "id": "royal-caribbean",
-      "name": "Royal Caribbean",
-      "logo": "assets/images/brands/placeholder-logo.svg",
+      "brand": "Royal Caribbean International",
+      "logo": "[ROYAL CARIBBEAN LOGO]",
       "featured": true,
       "deals": [
         {
-          "id": "rc-eastern-caribbean-7n",
-          "title": "7-Night Eastern Caribbean on Icon of the Seas",
-          "description": "Short, enticing sentence about the sailing.",
-          "price": "From $899 / person",
-          "discount": "Kids Sail Free + up to $200 onboard credit",
-          "cabin": "Balcony Stateroom",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-08-31",
-          "exclusive": true,
-          "ctaLabel": "Inquire Now"
+          "title": "Signature Exclusive: Specialty Dining for Two",
+          "description": "Receive a Specialty Dining Experience for Two on select sailings.",
+          "bookingWindow": "August 1–31, 2026",
+          "sailingWindow": "3+ Night Balcony & above sailings departing 10/1/26–3/31/27",
+          "badge": "Signature Exclusive"
         }
       ]
     }
@@ -76,20 +71,16 @@ All deals live in **`data/deals.json`**. It's a structured list of **brands** (c
 
 | Field | What it does |
 |-------|--------------|
-| `lastUpdated` | Date shown at the top of the Deals page. Bump it each week (`YYYY-MM-DD`). |
-| **Brand** `id` | A unique, lowercase, dash-separated tag (e.g. `royal-caribbean`). No spaces. Used internally. |
-| **Brand** `name` | The brand name shown on the page (e.g. `Royal Caribbean`). |
-| **Brand** `logo` | Path to the brand logo image (see "Adding a brand logo" below). |
-| **Brand** `featured` | `true` or `false`, reserved for future use; safe to leave as-is. |
-| `id` (deal) | Unique tag for the deal. Used in the "Inquire" link so you know which deal someone clicked. |
+| `weekOf` | The week these deals are for (`YYYY-MM-DD`). Shown at the top of the Deals page. Update it each week. |
+| `featuredSupplier` | The brand name to spotlight first in the Home-page preview. Must match a `brand` below exactly. |
+| **Brand** `brand` | The brand name shown on the page and used for the filter buttons (e.g. `Celebrity Cruises`). |
+| **Brand** `logo` | Brand logo. A `[BRACKETED PLACEHOLDER]` shows as text until you add a real logo (see "Adding a brand logo"). |
+| **Brand** `featured` | Optional `true` to prioritize this brand in the Home preview. Only put it on one brand. |
 | `title` | The headline of the deal. |
-| `description` | One or two sentences. |
-| `price` | Free text, e.g. `"From $899 / person"`. The sorter reads the first number for "price: low to high." |
-| `discount` | The promo line, e.g. `"Kids Sail Free"`. Optional, delete the line to hide it. |
-| `cabin` | Cabin/room type. Optional. |
-| `validFrom` / `validTo` | Dates in `YYYY-MM-DD`. **After `validTo` passes, the deal is automatically marked "Expired"** and hidden unless a visitor ticks "Show expired." |
-| `exclusive` | `true` shows the navy **"Cruise Planners Exclusive"** badge. `false` for regular deals. |
-| `ctaLabel` | Button text, e.g. `"Inquire Now"`. |
+| `description` | One or two sentences describing the offer. |
+| `bookingWindow` | When guests can book, e.g. `"July 1 – August 31, 2026"` or `"Now through December 31, 2026"`. **The site reads the LAST date here as the expiration** — after it passes, the deal is auto-flagged "Expired" and hidden unless a visitor ticks "Show expired." Always include the year. |
+| `sailingWindow` | When/what can sail, e.g. `"Select sailings through 2027"`. Free text. |
+| `badge` | `"Cruise Planners Exclusive"` (navy badge), `"Signature Exclusive"` (gold badge), or `null` for no badge. |
 
 ### Common tasks
 
@@ -98,24 +89,21 @@ All deals live in **`data/deals.json`**. It's a structured list of **brands** (c
 ```json
         },
         {
-          "id": "rc-new-deal",
-          "title": "New sailing title",
-          "description": "…",
-          "price": "From $XXX / person",
-          "discount": "",
-          "cabin": "Balcony",
-          "validFrom": "2026-09-01",
-          "validTo": "2026-09-30",
-          "exclusive": false,
-          "ctaLabel": "Inquire Now"
+          "title": "New offer title",
+          "description": "One sentence about the offer.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings",
+          "badge": "Cruise Planners Exclusive"
         }
 ```
 
-**🆕 Add a whole new brand**, copy an entire brand block (from `{` to its matching `}`), paste it into the `"brands": [ ... ]` list, and change the `id`, `name`, `logo`, and deals. Add a comma between brand blocks.
+**🆕 Add a whole new brand**, copy an entire brand block (from `{` to its matching `}`), paste it into the `"brands": [ ... ]` list, and change the `brand`, `logo`, and deals. Add a comma between brand blocks.
 
 **✏️ Edit a deal**, change the text between the quotes. Don't remove the quotes or the commas.
 
 **🗑️ Remove a deal**, delete its `{ ... }` block (and the comma that joins it to its neighbor). Or just let it expire, expired deals hide themselves.
+
+> **Tip on the expiration date:** the site figures out when an offer expires from the last date written in `bookingWindow`, so keep it human-readable *with the year* — `"July 22 – August 31, 2026"`, `"Now through December 31, 2026"`, `"August 1–31, 2026"` all work. If you write a booking window with no year, that deal simply never auto-expires (it stays visible until you remove it).
 
 ### ⚠️ The one rule of JSON
 

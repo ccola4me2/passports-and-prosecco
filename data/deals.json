@@ -1,156 +1,330 @@
 {
-  "_comment": "This file powers the Weekly Deals page and the Home page preview. Non-technical admins: edit this file to add/edit/remove deals. See README.md > 'Updating Weekly Deals'. Dates are ISO format YYYY-MM-DD. Deals past their validTo date are automatically flagged as expired.",
-  "lastUpdated": "2026-08-04",
+  "weekOf": "2026-08-03",
+  "featuredSupplier": "Royal Caribbean International",
   "brands": [
     {
-      "id": "royal-caribbean",
-      "name": "Royal Caribbean",
-      "logo": "assets/images/brands/placeholder-logo.svg",
+      "brand": "Royal Caribbean International",
+      "logo": "[ROYAL CARIBBEAN LOGO]",
       "featured": true,
       "deals": [
         {
-          "id": "rc-eastern-caribbean-7n",
-          "title": "7-Night Eastern Caribbean on Icon of the Seas",
-          "description": "Sail from Miami to CocoCay, St. Thomas, and St. Maarten aboard the world's largest cruise ship.",
-          "price": "From $899 / person",
-          "discount": "Kids Sail Free + up to $200 onboard credit",
-          "cabin": "Balcony Stateroom",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-08-31",
-          "exclusive": true,
-          "ctaLabel": "Inquire Now"
-        },
-        {
-          "id": "rc-alaska-hubbard",
-          "title": "7-Night Alaska Hubbard Glacier",
-          "description": "Round-trip from Seattle with scenic glacier cruising, Juneau, Skagway, and Sitka.",
-          "price": "From $1,149 / person",
-          "discount": "60% off second guest",
-          "cabin": "Oceanview",
-          "validFrom": "2026-07-15",
-          "validTo": "2026-09-15",
-          "exclusive": false,
-          "ctaLabel": "Inquire Now"
+          "title": "Signature Exclusive: Specialty Dining for Two",
+          "description": "Receive a Specialty Dining Experience for Two on select sailings.",
+          "bookingWindow": "August 1–31, 2026",
+          "sailingWindow": "3+ Night Balcony & above Bahamas, Bermuda, Caribbean or Mexico/West Coast sailings departing 10/1/26–3/31/27",
+          "badge": "Signature Exclusive"
         }
       ]
     },
     {
-      "id": "celebrity-cruises",
-      "name": "Celebrity Cruises",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": true,
+      "brand": "AMA Waterways",
+      "logo": "[AMA WATERWAYS LOGO]",
       "deals": [
         {
-          "id": "cel-med-2026",
-          "title": "10-Night Mediterranean on Celebrity Ascent",
-          "description": "Rome, Santorini, Mykonos, and Naples aboard an Edge-series ship designed for modern luxury.",
-          "price": "From $2,199 / person",
-          "discount": "All Included: drinks, Wi-Fi & tips",
-          "cabin": "Infinite Veranda",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-10-01",
-          "exclusive": true,
-          "ctaLabel": "Inquire Now"
+          "title": "Complimentary Pre-Paid Gratuities",
+          "description": "Complimentary Pre-Paid Gratuities on select 2026 sailings.",
+          "bookingWindow": "Now through December 27, 2026",
+          "sailingWindow": "Select 2026 sailings",
+          "badge": "Cruise Planners Exclusive"
         }
       ]
     },
     {
-      "id": "norwegian",
-      "name": "Norwegian Cruise Line",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": true,
+      "brand": "Avalon Waterways",
+      "logo": "[AVALON WATERWAYS LOGO]",
       "deals": [
         {
-          "id": "ncl-bahamas-freestyle",
-          "title": "5-Night Bahamas & Florida",
-          "description": "Freestyle cruising from Orlando (Port Canaveral) with a day at Great Stirrup Cay.",
-          "price": "From $549 / person",
-          "discount": "Free at Sea: 5 perks included",
-          "cabin": "Balcony",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-09-30",
-          "exclusive": false,
-          "ctaLabel": "Inquire Now"
+          "title": "Save $3,000 Per Couple",
+          "description": "Save $3,000 per couple on select 2026 cruises.",
+          "bookingWindow": "Now through August 10, 2026",
+          "sailingWindow": "Select 2026 River Cruises",
+          "badge": null
         }
       ]
     },
     {
-      "id": "margaritaville-at-sea",
-      "name": "Margaritaville at Sea",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": true,
+      "brand": "Azamara",
+      "logo": "[AZAMARA LOGO]",
       "deals": [
         {
-          "id": "mvas-paradise-4n",
-          "title": "4-Night Paradise: Key West & Bahamas",
-          "description": "Island-time sailing aboard Margaritaville at Sea Islander from Tampa. Live music, no worries.",
-          "price": "From $399 / person",
-          "discount": "Cruise Planners group rate + resort credit",
-          "cabin": "Balcony",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-08-25",
-          "exclusive": true,
-          "ctaLabel": "Inquire Now"
+          "title": "Onboard Booking Offer",
+          "description": "Onboard Booking Offer available on select sailings.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": null
         }
       ]
     },
     {
-      "id": "princess",
-      "name": "Princess Cruises",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": false,
+      "brand": "Beaches",
+      "logo": "[BEACHES LOGO]",
       "deals": [
         {
-          "id": "princess-alaska-inside",
-          "title": "7-Night Alaska Inside Passage",
-          "description": "Round-trip Seattle with Glacier Bay National Park, Ketchikan, and Juneau.",
-          "price": "From $999 / person",
-          "discount": "Princess Plus package included",
-          "cabin": "Balcony",
-          "validFrom": "2026-07-01",
-          "validTo": "2026-09-01",
-          "exclusive": false,
-          "ctaLabel": "Inquire Now"
+          "title": "Up to 3% Bonus Commission",
+          "description": "Up to 3% Bonus Commission on all new bookings when booked directly with Unique Vacations.",
+          "bookingWindow": "April 1 – December 31, 2026",
+          "sailingWindow": "All new bookings when booked directly with Unique Vacations",
+          "badge": null
         }
       ]
     },
     {
-      "id": "viking",
-      "name": "Viking",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": false,
+      "brand": "Carnival Cruise Line",
+      "logo": "[CARNIVAL LOGO]",
       "deals": [
         {
-          "id": "viking-rhine-river",
-          "title": "8-Day Rhine Getaway River Cruise",
-          "description": "Amsterdam to Basel through the storybook Rhine Valley. Adults-only, all-veranda ships.",
-          "price": "From $2,499 / person",
-          "discount": "Free international air on select dates",
-          "cabin": "Veranda Stateroom",
-          "validFrom": "2026-08-01",
-          "validTo": "2026-11-15",
-          "exclusive": false,
-          "ctaLabel": "Inquire Now"
+          "title": "Early Saver Special",
+          "description": "Cruise Planners Exclusive Early Saver Special.",
+          "bookingWindow": "Now through September 30, 2026",
+          "sailingWindow": "Sailings through April 2028 where Early Saver is available",
+          "badge": "Cruise Planners Exclusive"
         }
       ]
     },
     {
-      "id": "virgin-voyages",
-      "name": "Virgin Voyages",
-      "logo": "assets/images/brands/placeholder-logo.svg",
-      "featured": false,
+      "brand": "Celebrity Cruises",
+      "logo": "[CELEBRITY CRUISES LOGO]",
       "deals": [
         {
-          "id": "virgin-caribbean-adults",
-          "title": "5-Night Riviera Maya (Adults Only)",
-          "description": "Sail from Miami aboard Scarlet Lady. Tips, Wi-Fi, and dining always included.",
-          "price": "From $1,050 / sailor",
-          "discount": "Sailor Loot bar tab bonus",
-          "cabin": "Sea Terrace",
-          "validFrom": "2026-06-01",
-          "validTo": "2026-07-31",
-          "exclusive": true,
-          "ctaLabel": "Inquire Now"
+          "title": "$100 Onboard Credit",
+          "description": "Cruise Planners Exclusive $100 Onboard Credit.",
+          "bookingWindow": "July 22 – August 31, 2026",
+          "sailingWindow": "Select sailings through 2027",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Cunard",
+      "logo": "[CUNARD LOGO]",
+      "deals": [
+        {
+          "title": "Set Sail & Save",
+          "description": "Set Sail & Save promotion on select sailings.",
+          "bookingWindow": "June 4 – August 26, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Explora Journeys",
+      "logo": "[EXPLORA JOURNEYS LOGO]",
+      "deals": [
+        {
+          "title": "Early Booking Offer",
+          "description": "Early Booking Offer for sailings booked at least 1 year in advance.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Any sailing at least 1 year in advance from the date the new booking is confirmed",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Globus",
+      "logo": "[GLOBUS LOGO]",
+      "deals": [
+        {
+          "title": "1 Free Extra Night",
+          "description": "Signature Exclusive: Guests receive 1 free extra night on select 2026/2027 Globus Europe Tours.",
+          "bookingWindow": "Now through December 31, 2027",
+          "sailingWindow": "Select 2026/2027 Globus Europe Tours",
+          "badge": "Signature Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Holland America Line",
+      "logo": "[HOLLAND AMERICA LOGO]",
+      "deals": [
+        {
+          "title": "Up to $300 Onboard Credit",
+          "description": "Cruise Planners Exclusive up to $300 Onboard Credit.",
+          "bookingWindow": "June 22 – August 7, 2026",
+          "sailingWindow": "Select sailings through 2027",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "MSC Cruises",
+      "logo": "[MSC CRUISES LOGO]",
+      "deals": [
+        {
+          "title": "Up to $250 Onboard Credit",
+          "description": "Cruise Planners Exclusive up to $250 Onboard Credit.",
+          "bookingWindow": "July 1 – August 31, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Norwegian Cruise Line",
+      "logo": "[NORWEGIAN CRUISE LINE LOGO]",
+      "deals": [
+        {
+          "title": "50% Off All Cruises",
+          "description": "50% off all cruises on all open-for-sale sailings.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "All open for sale sailings",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Oceania Cruises",
+      "logo": "[OCEANIA CRUISES LOGO]",
+      "deals": [
+        {
+          "title": "$250 Shipboard Credit Per Couple",
+          "description": "Signature Exclusive $250 Shipboard Credit per couple on select sailings. View sailings via 'Find a Cruise'.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings, view via 'Find a Cruise'",
+          "badge": "Signature Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Ponant",
+      "logo": "[PONANT LOGO]",
+      "deals": [
+        {
+          "title": "Save Up to 30%",
+          "description": "Save up to 30% on select sailings; savings percentage depends on booking date, posted on Ponant's website.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings, varies by booking date",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Princess Cruises",
+      "logo": "[PRINCESS CRUISES LOGO]",
+      "deals": [
+        {
+          "title": "Cyber Summer Sale",
+          "description": "Cyber Summer Sale on select sailings.",
+          "bookingWindow": "July 15 – August 31, 2026",
+          "sailingWindow": "Select sailings through 2027",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Regent Seven Seas Cruises",
+      "logo": "[REGENT SEVEN SEAS LOGO]",
+      "deals": [
+        {
+          "title": "$300 Shipboard Credit Per Suite",
+          "description": "Cruise Planners Exclusive $300 Shipboard Credit per suite on select sailings.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Sandals",
+      "logo": "[SANDALS LOGO]",
+      "deals": [
+        {
+          "title": "Up to 3% Bonus Commission",
+          "description": "Up to 3% Bonus Commission on all new bookings via the TA Portal or Travel Advisor Reservations Team (no minimum nights).",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "All new bookings booked directly with Unique Vacations, Inc.",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Seabourn",
+      "logo": "[SEABOURN LOGO]",
+      "deals": [
+        {
+          "title": "Up to $1,000 Shipboard Credit + Reduced Deposit",
+          "description": "Up to $1,000 Shipboard Credit plus a reduced deposit on select sailings.",
+          "bookingWindow": "July 8 – September 22, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "brand": "Scenic",
+      "logo": "[SCENIC LOGO]",
+      "deals": [
+        {
+          "title": "Save $250 or €250 Onboard Credit",
+          "description": "Cruise Planners Exclusive: save $250 or receive €250 Onboard Credit.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "All 8+ Day Balcony & above sailings",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Silversea Cruises",
+      "logo": "[SILVERSEA CRUISES LOGO]",
+      "deals": [
+        {
+          "title": "$600 Shipboard Credit Per Couple",
+          "description": "Signature Exclusive $600 Shipboard Credit per couple on select sailings. See Special Sales for full details.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings, see Special Sales for details",
+          "badge": "Signature Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Uniworld",
+      "logo": "[UNIWORLD LOGO]",
+      "deals": [
+        {
+          "title": "€300 Shipboard Credit Per Couple",
+          "description": "Signature Exclusive €300 Shipboard Credit per couple on 2026/2027 sailings. View via 'Find a Cruise'.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "2026/2027 sailings, view via 'Find a Cruise'",
+          "badge": "Signature Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Viking Cruises",
+      "logo": "[VIKING CRUISES LOGO]",
+      "deals": [
+        {
+          "title": "$200 Shipboard Credit",
+          "description": "Signature Exclusive $200 Shipboard Credit on select sailings. View via 'Find a Cruise'.",
+          "bookingWindow": "Now through December 31, 2026",
+          "sailingWindow": "Select sailings, view via 'Find a Cruise'",
+          "badge": "Signature Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Virgin Voyages",
+      "logo": "[VIRGIN VOYAGES LOGO]",
+      "deals": [
+        {
+          "title": "4% Bonus Commission",
+          "description": "Cruise Planners Exclusive: receive 4% Bonus Commission on select sailings.",
+          "bookingWindow": "July 1 – September 30, 2026",
+          "sailingWindow": "Select sailings through 2028",
+          "badge": "Cruise Planners Exclusive"
+        }
+      ]
+    },
+    {
+      "brand": "Windstar",
+      "logo": "[WINDSTAR LOGO]",
+      "deals": [
+        {
+          "title": "Complimentary All-Inclusive Package + Reduced Deposit",
+          "description": "Complimentary All-Inclusive Package plus a reduced deposit of $150 per person on select sailings. Excludes Grand Prix, Mystery Cruises, Eclipse & Mystery Cruises, and accompanying Star Collector voyages.",
+          "bookingWindow": "July 1 – November 17, 2026",
+          "sailingWindow": "All voyages through 2027 (see exclusions)",
+          "badge": null
         }
       ]
     }

@@ -1,9 +1,14 @@
 /* =====================================================================
    Passports & Prosecco: Deals engine
    Loads data/deals.json and renders:
-     • [data-deals-app]   → full filterable/sortable deals page
-     • [data-deals-preview] → a small "featured deals" preview (home)
-   Deals past their validTo date are flagged as expired automatically.
+     • [data-deals-app]     -> full filterable/sortable deals page
+     • [data-deals-preview] -> a small "featured deals" preview (home)
+
+   Data model (per brand): { brand, logo, featured?, deals: [ ... ] }
+   Data model (per deal):  { title, description, bookingWindow,
+                             sailingWindow, badge }
+   The offer's expiry is derived automatically from the END of its
+   bookingWindow, so deals you can no longer book are flagged "Expired".
    ===================================================================== */
 (function () {
   "use strict";
@@ -19,46 +24,97 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
+  function slug(s) {
+    return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
   function today() { var d = new Date(); d.setHours(0, 0, 0, 0); return d; }
-  function parseDate(s) { var d = new Date(s + "T00:00:00"); return isNaN(d) ? null : d; }
-  function isExpired(deal) { var to = parseDate(deal.validTo); return to ? to < today() : false; }
-  function fmtDate(s) {
-    var d = parseDate(s); if (!d) return s || "";
+  function bookingUrl() { return (window.SITE_CONFIG && window.SITE_CONFIG.bookingUrl) || "contact.html"; }
+
+  var MONTHS = {
+    january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+    july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
+  };
+
+  // Best-effort parse of the END date from a free-text booking window such as
+  // "August 1-31, 2026", "Now through December 31, 2026", "July 22 - August 31, 2026".
+  // Strategy: last 4-digit year + last month name + last day number before the year.
+  function parseEndDate(s) {
+    if (!s) return null;
+    var years = String(s).match(/\b(20\d{2})\b/g);
+    if (!years) return null;
+    var year = parseInt(years[years.length - 1], 10);
+    var lower = String(s).toLowerCase();
+    var month = -1, monthPos = -1;
+    for (var name in MONTHS) {
+      var pos = lower.lastIndexOf(name);
+      if (pos > monthPos) { monthPos = pos; month = MONTHS[name]; }
+    }
+    if (month < 0) return null;
+    var beforeYear = String(s).slice(0, String(s).lastIndexOf(String(year)));
+    var nums = beforeYear.match(/\d{1,2}/g);
+    var day = nums ? parseInt(nums[nums.length - 1], 10) : 1;
+    if (day < 1 || day > 31) day = 1;
+    var d = new Date(year, month, day);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function isExpired(deal) {
+    var end = parseEndDate(deal.bookingWindow);
+    return end ? end < today() : false;
+  }
+  function fmtDate(d) {
+    if (!d) return "";
     return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
   }
-  function bookingUrl() { return (window.SITE_CONFIG && window.SITE_CONFIG.bookingUrl) || "contact.html"; }
+  function isExclusive(deal) { return !!deal.badge; }
+
+  // Show a real logo image once a path is set; otherwise a labeled placeholder box.
+  function brandLogoHtml(b) {
+    var logo = b.logo || "";
+    if (/^(assets\/|https?:|\/)/i.test(logo)) {
+      return '<img class="brand-logo-img" src="' + esc(logo) + '" alt="' + esc(b.brand) + ' logo" loading="lazy" />';
+    }
+    return '<div class="brand-logo" aria-hidden="true">' + esc(b.brand) + "<br><small>[LOGO]</small></div>";
+  }
+
+  function badgeHtml(deal, expired) {
+    var out = "";
+    if (deal.badge) {
+      var cls = /cruise\s*planners/i.test(deal.badge) ? "badge--exclusive" : "badge--signature";
+      out += '<span class="badge ' + cls + '">' + esc(deal.badge) + "</span>";
+    }
+    out += expired
+      ? '<span class="badge badge--expired">Expired</span>'
+      : '<span class="badge badge--live">Available now</span>';
+    return out;
+  }
 
   function dealCard(deal, brandName) {
     var expired = isExpired(deal);
-    var badges = "";
-    if (deal.exclusive) badges += '<span class="badge badge--exclusive">Cruise Planners Exclusive</span>';
-    badges += expired
-      ? '<span class="badge badge--expired">Expired</span>'
-      : '<span class="badge badge--live">Available now</span>';
+    var end = parseEndDate(deal.bookingWindow);
 
     var meta = "";
-    if (deal.cabin) meta += '<div class="row"><span class="k">Cabin</span><span class="v">' + esc(deal.cabin) + "</span></div>";
-    if (deal.price) meta += '<div class="row"><span class="k">Fare</span><span class="v deal-card__price">' + esc(deal.price) + "</span></div>";
+    if (deal.bookingWindow) meta += '<div class="row"><span class="k">Book by</span><span class="v">' + esc(deal.bookingWindow) + "</span></div>";
+    if (deal.sailingWindow) meta += '<div class="row"><span class="k">Sailings</span><span class="v">' + esc(deal.sailingWindow) + "</span></div>";
 
-    // CTA points to the booking/contact link, carrying the deal id for context.
     var base = bookingUrl();
     var link = base.indexOf("contact") !== -1
-      ? "contact.html?deal=" + encodeURIComponent(deal.id || deal.title)
+      ? "contact.html?deal=" + encodeURIComponent((brandName ? brandName + ": " : "") + deal.title)
       : base;
-    var ctaLabel = expired ? "Ask about similar" : (deal.ctaLabel || "Inquire Now");
+    var ctaLabel = expired ? "Ask about similar" : "Inquire Now";
+
+    var validText = expired
+      ? (end ? "Booking closed " + fmtDate(end) : "Offer expired")
+      : (end ? "Book by " + fmtDate(end) : "Limited-time offer");
 
     return (
       '<article class="deal-card' + (expired ? " is-expired" : "") + '" data-expired="' + expired + '">' +
-        '<div class="deal-card__badges">' + badges + "</div>" +
+        '<div class="deal-card__badges">' + badgeHtml(deal, expired) + "</div>" +
         "<h4>" + esc(deal.title) + "</h4>" +
         '<p class="deal-card__desc">' + esc(deal.description) + "</p>" +
-        (deal.discount ? '<p class="deal-card__discount">' + esc(deal.discount) + "</p>" : "") +
         '<div class="deal-card__meta">' + meta + "</div>" +
         '<div class="deal-card__foot">' +
-          '<span class="deal-card__valid' + (expired ? " is-expired" : "") + '">' +
-            (expired ? "Expired " + fmtDate(deal.validTo) : "Valid through " + fmtDate(deal.validTo)) +
-          "</span>" +
-          '<a class="btn btn--primary btn--sm" href="' + esc(link) + '">' + esc(ctaLabel) + "</a>" +
+          '<span class="deal-card__valid' + (expired ? " is-expired" : "") + '">' + validText + "</span>" +
+          '<a class="btn btn--primary btn--sm" href="' + esc(link) + '">' + ctaLabel + "</a>" +
         "</div>" +
       "</article>"
     );
@@ -68,8 +124,8 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (data) {
       var brands = (data && data.brands) || [];
-      if (previewEl) renderPreview(previewEl, brands);
-      if (appEl) renderApp(appEl, brands, data.lastUpdated);
+      if (previewEl) renderPreview(previewEl, brands, data.featuredSupplier);
+      if (appEl) renderApp(appEl, brands, data.weekOf);
     })
     .catch(function (err) {
       var msg = '<div class="deals-empty">We couldn\'t load the latest deals just now. Please refresh, or <a href="contact.html">contact us</a> for current offers.</div>';
@@ -79,54 +135,59 @@
     });
 
   /* ---- Home preview: a few featured, live deals ------------------- */
-  function renderPreview(el, brands) {
+  function renderPreview(el, brands, featuredSupplier) {
     var cards = [];
     brands.forEach(function (b) {
       (b.deals || []).forEach(function (d) {
-        if (!isExpired(d)) cards.push({ html: dealCard(d, b.name), exclusive: !!d.exclusive });
+        if (isExpired(d)) return;
+        var rank = 0;
+        if (b.featured || (featuredSupplier && b.brand === featuredSupplier)) rank += 4;
+        if (/cruise\s*planners/i.test(d.badge || "")) rank += 2;
+        else if (d.badge) rank += 1;
+        cards.push({ html: dealCard(d, b.brand), rank: rank });
       });
     });
-    // Prefer exclusives first, then cap at 3.
-    cards.sort(function (a, b) { return (b.exclusive ? 1 : 0) - (a.exclusive ? 1 : 0); });
+    cards.sort(function (a, b) { return b.rank - a.rank; });
     var top = cards.slice(0, 3).map(function (c) { return c.html; });
     el.innerHTML = top.length ? top.join("") :
       '<div class="deals-empty">Fresh deals are on the way. <a href="contact.html">Ask us</a> what\'s sailing now.</div>';
   }
 
   /* ---- Full deals page: filter + sort ----------------------------- */
-  function renderApp(el, brands, lastUpdated) {
+  function renderApp(el, brands, weekOf) {
     var state = { brand: "all", sort: "brand", showExpired: false };
+
+    var weekLabel = "";
+    if (weekOf) {
+      var wd = new Date(weekOf + "T00:00:00");
+      if (!isNaN(wd.getTime())) weekLabel = "Deals for the week of " + fmtDate(wd) + ". Offers subject to availability and change.";
+    }
 
     var controls =
       '<div class="deal-controls" role="group" aria-label="Filter deals by brand">' +
         '<button class="chip is-active" data-brand="all">All brands</button>' +
         brands.map(function (b) {
-          return '<button class="chip" data-brand="' + esc(b.id) + '">' + esc(b.name) + "</button>";
+          return '<button class="chip" data-brand="' + esc(slug(b.brand)) + '">' + esc(b.brand) + "</button>";
         }).join("") +
         '<span class="deal-controls__spacer"></span>' +
         '<label class="deal-sort">Sort' +
           '<select data-sort>' +
             '<option value="brand">By brand</option>' +
-            '<option value="price-asc">Price: low to high</option>' +
+            '<option value="exclusive">Exclusives first</option>' +
             '<option value="expiring">Expiring soonest</option>' +
           "</select>" +
         "</label>" +
         '<label class="deal-sort"><input type="checkbox" data-show-expired> Show expired</label>' +
       "</div>" +
-      (lastUpdated ? '<p class="deals-updated">Deals last updated ' + fmtDate(lastUpdated) + ". Offers subject to availability and change.</p>" : "") +
+      (weekLabel ? '<p class="deals-updated">' + weekLabel + "</p>" : "") +
       '<div data-deals-out></div>';
 
     el.innerHTML = controls;
     var out = el.querySelector("[data-deals-out]");
 
-    function priceNum(d) {
-      var m = String(d.price || "").replace(/,/g, "").match(/(\d+(\.\d+)?)/);
-      return m ? parseFloat(m[1]) : Number.MAX_SAFE_INTEGER;
-    }
-
     function draw() {
       var visibleBrands = brands.filter(function (b) {
-        return state.brand === "all" || b.id === state.brand;
+        return state.brand === "all" || slug(b.brand) === state.brand;
       });
 
       var html = "";
@@ -137,32 +198,35 @@
           return state.showExpired ? true : !isExpired(d);
         });
 
-        if (state.sort === "price-asc") deals.sort(function (a, c) { return priceNum(a) - priceNum(c); });
-        else if (state.sort === "expiring") deals.sort(function (a, c) {
-          var da = parseDate(a.validTo) || 0, dc = parseDate(c.validTo) || 0; return da - dc;
-        });
+        if (state.sort === "exclusive") {
+          deals = deals.slice().sort(function (a, c) { return (isExclusive(c) ? 1 : 0) - (isExclusive(a) ? 1 : 0); });
+        } else if (state.sort === "expiring") {
+          deals = deals.slice().sort(function (a, c) {
+            var da = parseEndDate(a.bookingWindow), dc = parseEndDate(c.bookingWindow);
+            return (da ? da.getTime() : Infinity) - (dc ? dc.getTime() : Infinity);
+          });
+        }
 
         if (!deals.length) return;
         totalShown += deals.length;
 
         html +=
-          '<section class="brand-block" id="brand-' + esc(b.id) + '">' +
+          '<section class="brand-block" id="brand-' + esc(slug(b.brand)) + '">' +
             '<div class="brand-block__head">' +
-              '<div class="brand-logo" aria-hidden="true">' + esc(b.name) + '<br><small>[LOGO]</small></div>' +
-              "<h3>" + esc(b.name) + "</h3>" +
+              brandLogoHtml(b) +
+              "<h3>" + esc(b.brand) + "</h3>" +
               '<span class="brand-block__count">' + deals.length + (deals.length === 1 ? " offer" : " offers") + "</span>" +
             "</div>" +
             '<div class="deals-grid">' +
-              deals.map(function (d) { return dealCard(d, b.name); }).join("") +
+              deals.map(function (d) { return dealCard(d, b.brand); }).join("") +
             "</div>" +
           "</section>";
       });
 
       out.innerHTML = totalShown ? html :
-        '<div class="deals-empty">No current deals in this view. Try “All brands,” toggle “Show expired,” or <a href="contact.html">ask us</a> for a custom quote.</div>';
+        '<div class="deals-empty">No current deals in this view. Try "All brands," toggle "Show expired," or <a href="contact.html">ask us</a> for a custom quote.</div>';
     }
 
-    // Wire controls
     el.querySelectorAll(".chip[data-brand]").forEach(function (chip) {
       chip.addEventListener("click", function () {
         state.brand = chip.getAttribute("data-brand");
