@@ -262,6 +262,7 @@ p { margin: 0 0 1.1em; }
 }
 .deal-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .deal-card.is-expired { opacity: .72; }
+.deal-card__brand { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-gold-deep); margin: 0 0 10px; }
 .deal-card__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
 .badge {
   font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;

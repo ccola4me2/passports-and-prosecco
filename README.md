@@ -113,10 +113,41 @@ Punctuation matters. Keep every `"quote"`, `,` comma, and `{ }` bracket exactly 
 
 ### Adding a brand logo
 
-1. Save the logo (PNG or SVG) into `assets/images/brands/`, e.g. `royal-caribbean.png`.
-2. In `deals.json`, set that brand's `"logo"` to `"assets/images/brands/royal-caribbean.png"`.
+The site looks for each brand's logo automatically, so **all you do is drop a correctly-named PNG into `assets/images/brands/`** — no JSON editing needed. The moment the file exists, the placeholder box is replaced by the real logo (and it keeps working through your weekly deal updates). Until then, the brand name shows as a labeled placeholder — nothing breaks.
 
-*(Until you add real logos, brand names simply appear as text, nothing breaks.)*
+**File naming:** lowercase, spaces become dashes, `.png`. Use these exact names:
+
+| Brand | Save the logo as |
+|-------|------------------|
+| Royal Caribbean International | `assets/images/brands/royal-caribbean-international.png` |
+| AMA Waterways | `assets/images/brands/ama-waterways.png` |
+| Avalon Waterways | `assets/images/brands/avalon-waterways.png` |
+| Azamara | `assets/images/brands/azamara.png` |
+| Beaches | `assets/images/brands/beaches.png` |
+| Carnival Cruise Line | `assets/images/brands/carnival-cruise-line.png` |
+| Celebrity Cruises | `assets/images/brands/celebrity-cruises.png` |
+| Cunard | `assets/images/brands/cunard.png` |
+| Explora Journeys | `assets/images/brands/explora-journeys.png` |
+| Globus | `assets/images/brands/globus.png` |
+| Holland America Line | `assets/images/brands/holland-america-line.png` |
+| MSC Cruises | `assets/images/brands/msc-cruises.png` |
+| Norwegian Cruise Line | `assets/images/brands/norwegian-cruise-line.png` |
+| Oceania Cruises | `assets/images/brands/oceania-cruises.png` |
+| Ponant | `assets/images/brands/ponant.png` |
+| Princess Cruises | `assets/images/brands/princess-cruises.png` |
+| Regent Seven Seas Cruises | `assets/images/brands/regent-seven-seas-cruises.png` |
+| Sandals | `assets/images/brands/sandals.png` |
+| Seabourn | `assets/images/brands/seabourn.png` |
+| Scenic | `assets/images/brands/scenic.png` |
+| Silversea Cruises | `assets/images/brands/silversea-cruises.png` |
+| Uniworld | `assets/images/brands/uniworld.png` |
+| Viking Cruises | `assets/images/brands/viking-cruises.png` |
+| Virgin Voyages | `assets/images/brands/virgin-voyages.png` |
+| Windstar | `assets/images/brands/windstar.png` |
+
+Tips: PNG with a transparent background looks best; roughly 300–400px wide is plenty (it's displayed ~52px tall). For any brand not in this list, the file name is just the brand's name lowercased with spaces turned into dashes, `.png`. To use a different file name or an SVG instead, set that brand's `"logo"` field in `deals.json` to the exact path.
+
+**Where to get official logos:** download them from the Cruise Planners supplier/marketing portal, or each brand's travel-agent / media assets page. (Please don't grab random logo files off the open web — use the official trademark-approved versions Cruise Planners provides.)
 
 ---
 

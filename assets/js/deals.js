@@ -67,13 +67,36 @@
   }
   function isExclusive(deal) { return !!deal.badge; }
 
-  // Show a real logo image once a path is set; otherwise a labeled placeholder box.
-  function brandLogoHtml(b) {
+  // Where a brand's logo lives: an explicit path in the data wins; otherwise
+  // the renderer looks for assets/images/brands/<brand-slug>.png automatically.
+  function logoSrc(b) {
     var logo = b.logo || "";
-    if (/^(assets\/|https?:|\/)/i.test(logo)) {
-      return '<img class="brand-logo-img" src="' + esc(logo) + '" alt="' + esc(b.brand) + ' logo" loading="lazy" />';
-    }
-    return '<div class="brand-logo" aria-hidden="true">' + esc(b.brand) + "<br><small>[LOGO]</small></div>";
+    if (/^(assets\/|https?:|\/)/i.test(logo)) return logo;
+    return "assets/images/brands/" + slug(b.brand) + ".png";
+  }
+  // Render a labeled placeholder box first (no broken-image flash), tagged with
+  // where its logo would live so we can upgrade it once the file exists.
+  function brandLogoHtml(b) {
+    return '<div class="brand-logo" aria-hidden="true" data-logo-src="' + esc(logoSrc(b)) +
+           '" data-brand="' + esc(b.brand) + '">' + esc(b.brand) + "<br><small>[LOGO]</small></div>";
+  }
+  // Quietly preload each brand's logo; if the file is present, swap the placeholder
+  // for the real image. Missing files simply leave the placeholder in place.
+  function upgradeLogos(scope) {
+    scope.querySelectorAll(".brand-logo[data-logo-src]").forEach(function (box) {
+      var src = box.getAttribute("data-logo-src");
+      if (!src) return;
+      var probe = new Image();
+      probe.onload = function () {
+        var img = document.createElement("img");
+        img.className = "brand-logo-img";
+        img.src = src;
+        img.alt = (box.getAttribute("data-brand") || "") + " logo";
+        img.loading = "lazy";
+        if (box.parentNode) box.parentNode.replaceChild(img, box);
+      };
+      probe.src = src;
+    });
   }
 
   function badgeHtml(deal, expired) {
@@ -88,7 +111,7 @@
     return out;
   }
 
-  function dealCard(deal, brandName) {
+  function dealCard(deal, brandName, showBrand) {
     var expired = isExpired(deal);
     var end = parseEndDate(deal.bookingWindow);
 
@@ -108,6 +131,7 @@
 
     return (
       '<article class="deal-card' + (expired ? " is-expired" : "") + '" data-expired="' + expired + '">' +
+        (showBrand && brandName ? '<p class="deal-card__brand">' + esc(brandName) + "</p>" : "") +
         '<div class="deal-card__badges">' + badgeHtml(deal, expired) + "</div>" +
         "<h4>" + esc(deal.title) + "</h4>" +
         '<p class="deal-card__desc">' + esc(deal.description) + "</p>" +
@@ -144,7 +168,7 @@
         if (b.featured || (featuredSupplier && b.brand === featuredSupplier)) rank += 4;
         if (/cruise\s*planners/i.test(d.badge || "")) rank += 2;
         else if (d.badge) rank += 1;
-        cards.push({ html: dealCard(d, b.brand), rank: rank });
+        cards.push({ html: dealCard(d, b.brand, true), rank: rank });
       });
     });
     cards.sort(function (a, b) { return b.rank - a.rank; });
@@ -225,6 +249,7 @@
 
       out.innerHTML = totalShown ? html :
         '<div class="deals-empty">No current deals in this view. Try "All brands," toggle "Show expired," or <a href="contact.html">ask us</a> for a custom quote.</div>';
+      upgradeLogos(out);
     }
 
     el.querySelectorAll(".chip[data-brand]").forEach(function (chip) {
