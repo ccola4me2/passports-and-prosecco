@@ -67,35 +67,37 @@
   }
   function isExclusive(deal) { return !!deal.badge; }
 
-  // Where a brand's logo lives: an explicit path in the data wins; otherwise
-  // the renderer looks for assets/images/brands/<brand-slug>.png automatically.
-  function logoSrc(b) {
+  // Candidate logo files to look for, in priority order. An explicit path in the
+  // data wins; otherwise we try assets/images/brands/<slug>.png then .svg.
+  // Until a file exists, the brand shows as a styled text wordmark.
+  function logoCandidates(b) {
     var logo = b.logo || "";
-    if (/^(assets\/|https?:|\/)/i.test(logo)) return logo;
-    return "assets/images/brands/" + slug(b.brand) + ".png";
+    if (/^(assets\/|https?:|\/)/i.test(logo)) return [logo];
+    var base = "assets/images/brands/" + slug(b.brand);
+    return [base + ".png", base + ".svg"];
   }
-  // Render a labeled placeholder box first (no broken-image flash), tagged with
-  // where its logo would live so we can upgrade it once the file exists.
-  function brandLogoHtml(b) {
-    return '<div class="brand-logo" aria-hidden="true" data-logo-src="' + esc(logoSrc(b)) +
-           '" data-brand="' + esc(b.brand) + '">' + esc(b.brand) + "<br><small>[LOGO]</small></div>";
-  }
-  // Quietly preload each brand's logo; if the file is present, swap the placeholder
-  // for the real image. Missing files simply leave the placeholder in place.
+  // Quietly probe each brand's logo files; the first that loads replaces the text
+  // wordmark with the real image. Missing files simply leave the wordmark in place.
   function upgradeLogos(scope) {
-    scope.querySelectorAll(".brand-logo[data-logo-src]").forEach(function (box) {
-      var src = box.getAttribute("data-logo-src");
-      if (!src) return;
-      var probe = new Image();
-      probe.onload = function () {
-        var img = document.createElement("img");
-        img.className = "brand-logo-img";
-        img.src = src;
-        img.alt = (box.getAttribute("data-brand") || "") + " logo";
-        img.loading = "lazy";
-        if (box.parentNode) box.parentNode.replaceChild(img, box);
-      };
-      probe.src = src;
+    scope.querySelectorAll("[data-logo-src]").forEach(function (box) {
+      var list = (box.getAttribute("data-logo-src") || "").split("|").filter(Boolean);
+      (function tryNext(i) {
+        if (i >= list.length) return;
+        var src = list[i];
+        var probe = new Image();
+        probe.onload = function () {
+          var img = document.createElement("img");
+          img.className = "brand-logo-img";
+          img.src = src;
+          img.alt = (box.getAttribute("data-brand") || "") + " logo";
+          img.loading = "lazy";
+          box.textContent = "";
+          box.appendChild(img);
+          box.classList.add("has-logo");
+        };
+        probe.onerror = function () { tryNext(i + 1); };
+        probe.src = src;
+      })(0);
     });
   }
 
@@ -237,8 +239,7 @@
         html +=
           '<section class="brand-block" id="brand-' + esc(slug(b.brand)) + '">' +
             '<div class="brand-block__head">' +
-              brandLogoHtml(b) +
-              "<h3>" + esc(b.brand) + "</h3>" +
+              '<h3 class="brand-wordmark" data-logo-src="' + esc(logoCandidates(b).join("|")) + '" data-brand="' + esc(b.brand) + '">' + esc(b.brand) + "</h3>" +
               '<span class="brand-block__count">' + deals.length + (deals.length === 1 ? " offer" : " offers") + "</span>" +
             "</div>" +
             '<div class="deals-grid">' +

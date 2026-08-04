@@ -250,8 +250,11 @@ p { margin: 0 0 1.1em; }
   display: grid; place-items: center; font-size: .56rem; letter-spacing: .06em; text-transform: uppercase;
   color: var(--rose-gold-deep); text-align: center; padding: 4px 8px; line-height: 1.1;
 }
-.brand-logo-img { height: 52px; width: auto; max-width: 150px; object-fit: contain; }
+.brand-logo-img { height: 52px; width: auto; max-width: 180px; object-fit: contain; display: block; }
 .brand-block__head h3 { margin: 0; }
+/* Styled text wordmark shown until a real logo image is dropped in */
+.brand-wordmark { margin: 0; font-family: var(--serif); font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 600; color: var(--navy); letter-spacing: .015em; line-height: 1.12; }
+.brand-wordmark.has-logo { line-height: 0; }
 .brand-block__count { margin-left: auto; font-size: .82rem; color: var(--muted); }
 
 .deals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
