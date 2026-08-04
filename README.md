@@ -159,7 +159,7 @@ The logo appears in **three spots**, all marked with dashed placeholder boxes re
 1. Save the official logo to `assets/images/` (e.g. `cruise-planners-logo.png`).
 2. In each HTML file, find the placeholder, search for `brand-lockup__logo` (header/footer) or `[CRUISE PLANNERS LOGO]` (contact page), and replace the placeholder `<span>…</span>` with:
    ```html
-   <img src="assets/images/cruise-planners-logo.png" alt="Cruise Planners, an American Express Travel Representative" style="height:44px" />
+   <img src="assets/images/cruise-planners-logo.png" alt="Cruise Planners" style="height:44px" />
    ```
 
 Do the same to swap the **favicon** (`assets/images/favicon.svg`) and the **social-share image** (`assets/images/og-cover.svg`, for best results export a real photo at **1200 × 630 px** and update the `og:image` lines in each page's `<head>`).

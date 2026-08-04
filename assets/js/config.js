@@ -24,7 +24,7 @@ window.SITE_CONFIG = {
   bookingUrl: "contact.html",
 
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
-  affiliation: "An independent affiliate of Cruise Planners, an American Express Travel Representative.",
+  affiliation: "An independent affiliate of Cruise Planners.",
   floridaSeller: "[FL Seller of Travel Ref. No. placeholder]",
 
   // --- Social links (leave "#" to hide/placeholder) ---
