@@ -138,6 +138,14 @@ p { margin: 0 0 1.1em; }
   color: var(--rose-gold-deep); text-align: center; line-height: 1.1;
   background: #fff;
 }
+/* Cruise Planners logo */
+.cp-logo { height: 34px; width: auto; display: block; }
+.cp-logo--lg { height: 46px; margin-bottom: 14px; }
+.brand-lockup { padding-right: 2px; }
+.brand-lockup .cp-logo { border-right: 1px solid var(--line); padding-right: 14px; }
+.cp-logo-chip { display: inline-block; background: #fff; border-radius: 8px; padding: 8px 12px; line-height: 0; }
+.site-footer .cp-logo { height: 28px; }
+.footer-brand .brand-lockup .cp-logo { border-right: 0; padding-right: 0; }
 .brand-lockup__name { display: flex; flex-direction: column; line-height: 1; }
 .brand-lockup__name .primary {
   font-family: var(--serif); font-size: 1.32rem; font-weight: 600; color: var(--navy);
@@ -383,6 +391,9 @@ p { margin: 0 0 1.1em; }
   .brand-lockup__name .sub { display: none; }
   .hero__badge { display: none; }
   body { font-size: 16px; }
+  .cp-logo { height: 26px; }
+  .brand-lockup .cp-logo { padding-right: 10px; }
+  .brand-lockup__name .primary { font-size: 1.15rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
