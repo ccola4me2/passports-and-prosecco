@@ -140,7 +140,7 @@ Open **`assets/js/config.js`** and edit the values inside the quotes. This one f
 window.SITE_CONFIG = {
   phone: "[PHONE]",                 // e.g. "(555) 123-4567"
   phoneLink: "tel:+10000000000",    // e.g. "tel:+15551234567"
-  email: "[EMAIL]",                 // e.g. "brent@passportsandprosecco.com"
+  email: "[EMAIL]",                 // e.g. "brent@passports-and-prosecco.com"
   bookingUrl: "contact.html",       // your Cruise Planners booking/quote URL, or leave as contact.html
   ...
   social: { facebook: "#", instagram: "#", tiktok: "#" }  // paste real profile URLs

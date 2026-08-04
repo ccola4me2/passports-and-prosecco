@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://passportsandprosecco.com/sitemap.xml
+Sitemap: https://passports-and-prosecco.com/sitemap.xml
