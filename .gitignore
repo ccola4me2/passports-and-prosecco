@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editor / OS cruft
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Logs
+*.log

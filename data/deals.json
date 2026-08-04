@@ -1,0 +1,158 @@
+{
+  "_comment": "This file powers the Weekly Deals page and the Home page preview. Non-technical admins: edit this file to add/edit/remove deals. See README.md > 'Updating Weekly Deals'. Dates are ISO format YYYY-MM-DD. Deals past their validTo date are automatically flagged as expired.",
+  "lastUpdated": "2026-08-04",
+  "brands": [
+    {
+      "id": "royal-caribbean",
+      "name": "Royal Caribbean",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": true,
+      "deals": [
+        {
+          "id": "rc-eastern-caribbean-7n",
+          "title": "7-Night Eastern Caribbean on Icon of the Seas",
+          "description": "Sail from Miami to CocoCay, St. Thomas, and St. Maarten aboard the world's largest cruise ship.",
+          "price": "From $899 / person",
+          "discount": "Kids Sail Free + up to $200 onboard credit",
+          "cabin": "Balcony Stateroom",
+          "validFrom": "2026-08-01",
+          "validTo": "2026-08-31",
+          "exclusive": true,
+          "ctaLabel": "Inquire Now"
+        },
+        {
+          "id": "rc-alaska-hubbard",
+          "title": "7-Night Alaska Hubbard Glacier",
+          "description": "Round-trip from Seattle with scenic glacier cruising, Juneau, Skagway, and Sitka.",
+          "price": "From $1,149 / person",
+          "discount": "60% off second guest",
+          "cabin": "Oceanview",
+          "validFrom": "2026-07-15",
+          "validTo": "2026-09-15",
+          "exclusive": false,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "celebrity-cruises",
+      "name": "Celebrity Cruises",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": true,
+      "deals": [
+        {
+          "id": "cel-med-2026",
+          "title": "10-Night Mediterranean on Celebrity Ascent",
+          "description": "Rome, Santorini, Mykonos, and Naples aboard an Edge-series ship designed for modern luxury.",
+          "price": "From $2,199 / person",
+          "discount": "All Included: drinks, Wi-Fi & tips",
+          "cabin": "Infinite Veranda",
+          "validFrom": "2026-08-01",
+          "validTo": "2026-10-01",
+          "exclusive": true,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "norwegian",
+      "name": "Norwegian Cruise Line",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": true,
+      "deals": [
+        {
+          "id": "ncl-bahamas-freestyle",
+          "title": "5-Night Bahamas & Florida",
+          "description": "Freestyle cruising from Orlando (Port Canaveral) with a day at Great Stirrup Cay.",
+          "price": "From $549 / person",
+          "discount": "Free at Sea: 5 perks included",
+          "cabin": "Balcony",
+          "validFrom": "2026-08-01",
+          "validTo": "2026-09-30",
+          "exclusive": false,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "margaritaville-at-sea",
+      "name": "Margaritaville at Sea",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": true,
+      "deals": [
+        {
+          "id": "mvas-paradise-4n",
+          "title": "4-Night Paradise: Key West & Bahamas",
+          "description": "Island-time sailing aboard Margaritaville at Sea Islander from Tampa. Live music, no worries.",
+          "price": "From $399 / person",
+          "discount": "Cruise Planners group rate + resort credit",
+          "cabin": "Balcony",
+          "validFrom": "2026-08-01",
+          "validTo": "2026-08-25",
+          "exclusive": true,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "princess",
+      "name": "Princess Cruises",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": false,
+      "deals": [
+        {
+          "id": "princess-alaska-inside",
+          "title": "7-Night Alaska Inside Passage",
+          "description": "Round-trip Seattle with Glacier Bay National Park, Ketchikan, and Juneau.",
+          "price": "From $999 / person",
+          "discount": "Princess Plus package included",
+          "cabin": "Balcony",
+          "validFrom": "2026-07-01",
+          "validTo": "2026-09-01",
+          "exclusive": false,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "viking",
+      "name": "Viking",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": false,
+      "deals": [
+        {
+          "id": "viking-rhine-river",
+          "title": "8-Day Rhine Getaway River Cruise",
+          "description": "Amsterdam to Basel through the storybook Rhine Valley. Adults-only, all-veranda ships.",
+          "price": "From $2,499 / person",
+          "discount": "Free international air on select dates",
+          "cabin": "Veranda Stateroom",
+          "validFrom": "2026-08-01",
+          "validTo": "2026-11-15",
+          "exclusive": false,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    },
+    {
+      "id": "virgin-voyages",
+      "name": "Virgin Voyages",
+      "logo": "assets/images/brands/placeholder-logo.svg",
+      "featured": false,
+      "deals": [
+        {
+          "id": "virgin-caribbean-adults",
+          "title": "5-Night Riviera Maya (Adults Only)",
+          "description": "Sail from Miami aboard Scarlet Lady. Tips, Wi-Fi, and dining always included.",
+          "price": "From $1,050 / sailor",
+          "discount": "Sailor Loot bar tab bonus",
+          "cabin": "Sea Terrace",
+          "validFrom": "2026-06-01",
+          "validTo": "2026-07-31",
+          "exclusive": true,
+          "ctaLabel": "Inquire Now"
+        }
+      ]
+    }
+  ]
+}
