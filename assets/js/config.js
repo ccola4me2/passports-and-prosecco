@@ -1,5 +1,5 @@
 /*
- * SITE CONFIGURATION — Passports & Prosecco
+ * SITE CONFIGURATION: Passports & Prosecco
  * ------------------------------------------------------------------
  * Non-technical admins: this is the one place to update contact info,
  * booking links, and social handles. Change the values inside the
@@ -25,7 +25,7 @@ window.SITE_CONFIG = {
 
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
   affiliation: "An independent affiliate of Cruise Planners, an American Express Travel Representative.",
-  floridaSeller: "[FL Seller of Travel Ref. No. — placeholder]",
+  floridaSeller: "[FL Seller of Travel Ref. No. placeholder]",
 
   // --- Social links (leave "#" to hide/placeholder) ---
   social: {

@@ -1,5 +1,5 @@
 /* =====================================================================
-   Passports & Prosecco — Shared site behavior
+   Passports & Prosecco: Shared site behavior
    - Injects contact/booking/social values from config.js
    - Mobile nav toggle, active link, scroll reveal, footer year
    - Contact form (front-end validation + friendly confirmation)

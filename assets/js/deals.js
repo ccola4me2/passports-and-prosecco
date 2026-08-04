@@ -1,5 +1,5 @@
 /* =====================================================================
-   Passports & Prosecco — Deals engine
+   Passports & Prosecco: Deals engine
    Loads data/deals.json and renders:
      • [data-deals-app]   → full filterable/sortable deals page
      • [data-deals-preview] → a small "featured deals" preview (home)
