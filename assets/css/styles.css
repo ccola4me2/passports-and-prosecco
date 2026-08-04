@@ -181,7 +181,7 @@ p { margin: 0 0 1.1em; }
 /* ---------- Trust bar ---------- */
 .trustbar { background: var(--navy-deep); color: #cdd8e4; }
 .trustbar__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   max-width: var(--maxw); margin: 0 auto; padding: 30px 24px; text-align: center;
 }
 .trustbar__stat .num { font-family: var(--serif); font-size: 2rem; color: #fff; line-height: 1; }
