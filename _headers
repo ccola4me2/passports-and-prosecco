@@ -2,16 +2,21 @@
 # https://developers.cloudflare.com/pages/configuration/headers/
 # Applied automatically on deploy — no dashboard setup needed.
 
-# Long-cache fingerprint-free static assets (safe: bump a filename to bust).
+# This is a no-build site: CSS/JS filenames don't change, so DON'T cache them
+# "immutable" or edits never show. Revalidate every load (cheap 304s when
+# unchanged), so a push goes live immediately.
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Images can cache a little longer; new logos use new filenames anyway.
+/assets/images/*
+  Cache-Control: public, max-age=86400, must-revalidate
 
 # Deals data refreshes weekly — keep it short so edits show up fast.
 /data/*
   Cache-Control: public, max-age=300, must-revalidate
 
-# Security headers + a Content-Security-Policy tuned to this site
-# (self-hosted scripts, Google Fonts for CSS/fonts, inline style= attributes).
+# Security headers + a Content-Security-Policy tuned to this site.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
