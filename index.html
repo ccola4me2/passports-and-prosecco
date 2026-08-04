@@ -12,7 +12,8 @@
   <meta property="og:site_name" content="Passports & Prosecco" />
   <meta property="og:title" content="Passports & Prosecco, Boutique Travel Advisors" />
   <meta property="og:description" content="Expedited, Premium, and Luxury travel planning with Brent & Shannon. We plan it. You live it." />
-  <meta property="og:image" content="https://passports-and-prosecco.com/assets/images/og-cover.svg" />
+  <meta property="og:image" content="https://passports-and-prosecco.com/assets/images/hero-banner.jpg" />
+  <meta property="og:image:alt" content="Passports & Prosecco — coastal sunset with passport, sun hat, and prosecco" />
   <meta property="og:url" content="https://passports-and-prosecco.com/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Passports & Prosecco, Boutique Travel Advisors" />
@@ -57,72 +58,26 @@
 
 <main id="main">
 <!-- ===================== HERO ===================== -->
-<section class="hero" aria-label="Introduction">
-  <div class="hero__bg" aria-hidden="true">
-    <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#243b57"/>
-          <stop offset="34%" stop-color="#5c5470"/>
-          <stop offset="60%" stop-color="#c98a86"/>
-          <stop offset="80%" stop-color="#e8b48f"/>
-          <stop offset="100%" stop-color="#f4d9b8"/>
-        </linearGradient>
-        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#e9c39a"/>
-          <stop offset="30%" stop-color="#b9836f"/>
-          <stop offset="100%" stop-color="#1f3350"/>
-        </linearGradient>
-        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fff2d8"/>
-          <stop offset="55%" stop-color="#f7cf94"/>
-          <stop offset="100%" stop-color="#e8a86f" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="1440" height="470" fill="url(#sky)"/>
-      <circle cx="1010" cy="360" r="150" fill="url(#sun)"/>
-      <circle cx="1010" cy="360" r="66" fill="#fff0d0" opacity="0.95"/>
-      <rect y="440" width="1440" height="280" fill="url(#sea)"/>
-      <!-- sun glimmer on water -->
-      <g fill="#ffe7bf" opacity="0.5">
-        <rect x="980" y="470" width="60" height="6" rx="3"/>
-        <rect x="965" y="492" width="90" height="6" rx="3"/>
-        <rect x="950" y="516" width="120" height="7" rx="3.5"/>
-        <rect x="935" y="544" width="150" height="7" rx="3.5"/>
-        <rect x="918" y="576" width="184" height="8" rx="4"/>
-      </g>
-      <!-- distant coastline -->
-      <path d="M0 452 C 220 430, 360 470, 560 452 C 760 434, 900 466, 1440 448 L1440 470 L0 470 Z" fill="#3a4a63" opacity="0.55"/>
-      <!-- palm silhouettes, left -->
-      <g fill="#101c2c" opacity="0.92">
-        <rect x="120" y="300" width="10" height="180" rx="5" transform="rotate(-4 125 390)"/>
-        <path d="M125 305 C 80 280, 55 292, 40 300 C 70 288, 100 296, 125 306 Z"/>
-        <path d="M125 305 C 170 278, 200 288, 220 296 C 185 286, 152 294, 125 306 Z"/>
-        <path d="M125 305 C 96 268, 100 244, 108 226 C 106 258, 118 288, 127 306 Z"/>
-        <path d="M125 305 C 150 270, 176 258, 196 250 C 162 268, 138 286, 127 306 Z"/>
-      </g>
-      <g fill="#0c1626" opacity="0.95">
-        <rect x="196" y="332" width="12" height="150" rx="6" transform="rotate(5 202 400)"/>
-        <path d="M202 336 C 250 306, 286 316, 312 326 C 268 312, 230 322, 204 338 Z"/>
-        <path d="M202 336 C 154 308, 120 320, 96 332 C 140 316, 176 324, 204 338 Z"/>
-        <path d="M202 336 C 180 296, 186 268, 198 246 C 190 282, 196 314, 205 338 Z"/>
-      </g>
-    </svg>
-  </div>
-  <div class="hero__overlay" aria-hidden="true"></div>
-  <div class="hero__inner">
-    <div class="hero__content">
-      <span class="hero__kicker">Cruise Planners · American Express Travel</span>
-      <h1>Passports <span class="script">&amp; Prosecco</span></h1>
-      <p class="hero__tagline">We plan it. You live it.</p>
-      <p class="hero__sub">Boutique travel planning for cruises, resorts, honeymoons, and group getaways, designed around you by <strong>Brent &amp; Shannon</strong>, your travel advisors and friends.</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" data-cfg-href="booking" href="contact.html">Plan My Trip</a>
-        <a class="btn btn--ghost" href="deals.html">See This Week’s Deals</a>
-      </div>
+<section class="hero-banner" aria-label="Passports &amp; Prosecco">
+  <!-- Accessible, SEO-friendly heading (the wordmark is part of the banner image) -->
+  <h1 class="sr-only">Passports &amp; Prosecco, boutique travel advisors. We plan it. You live it.</h1>
+  <img class="hero-banner__img"
+       src="assets/images/hero-banner.jpg"
+       width="1942" height="809" fetchpriority="high"
+       alt="Passports &amp; Prosecco: a coastal sunset over the sea with a U.S. passport, sun hat, sunglasses, and two glasses of prosecco on a table." />
+</section>
+
+<!-- Intro / CTA band directly under the banner -->
+<section class="hero-intro">
+  <div class="container hero-intro__inner">
+    <span class="hero__kicker">Cruise Planners · American Express Travel</span>
+    <p class="hero-intro__tagline">We plan it. <span class="script">You live it.</span></p>
+    <p class="hero-intro__sub">Boutique travel planning for cruises, resorts, honeymoons, and group getaways, designed around you by <strong>Brent &amp; Shannon</strong>, your travel advisors and friends.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" data-cfg-href="booking" href="contact.html">Plan My Trip</a>
+      <a class="btn btn--outline" href="deals.html">See This Week’s Deals</a>
     </div>
   </div>
-  <div class="hero__badge"><span class="dot"></span> Free, no-obligation quotes</div>
 </section>
 
 <!-- ===================== TRUST BAR ===================== -->
