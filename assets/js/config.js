@@ -25,7 +25,7 @@ window.SITE_CONFIG = {
 
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
   affiliation: "An independent affiliate of Cruise Planners.",
-  floridaSeller: "[FL Seller of Travel Ref. No. placeholder]",
+  floridaSeller: "Fla. Seller of Travel Reg. No. TI128169",
 
   // --- Social links (leave "#" to hide/placeholder) ---
   social: {
