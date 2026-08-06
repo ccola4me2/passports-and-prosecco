@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
   brandName: "Passports & Prosecco",
   tagline: "We plan it. You live it.",
   advisors: "Brent & Shannon",
-  advisorsTitle: "Your Travel Advisors & Friends",
+  advisorsTitle: "Your Travel Advisors",
 
   // --- Contact details (shown in header, footer, and contact page) ---
   phone: "[PHONE]",                 // e.g. "(555) 123-4567"
