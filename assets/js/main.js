@@ -20,15 +20,39 @@
     });
   }
 
-  setText("[data-cfg='phone']", cfg.phone);
-  setText("[data-cfg='email']", cfg.email);
   setText("[data-cfg='advisors']", cfg.advisors);
   setText("[data-cfg='affiliation']", cfg.affiliation);
   setText("[data-cfg='floridaSeller']", cfg.floridaSeller);
-
-  setAttr("[data-cfg-href='phone']", "href", cfg.phoneLink);
-  setAttr("[data-cfg-href='email']", "href", cfg.email ? "mailto:" + cfg.email : null);
   setAttr("[data-cfg-href='booking']", "href", cfg.bookingUrl);
+
+  // Render the advisor team (name + phone + email) into any [data-advisors] block.
+  var team = cfg.team || [];
+  document.querySelectorAll("[data-advisors]").forEach(function (host) {
+    host.textContent = "";
+    team.forEach(function (a) {
+      var wrap = document.createElement("div");
+      wrap.className = "advisor";
+      var name = document.createElement("p");
+      name.className = "advisor__name";
+      name.textContent = a.name;
+      wrap.appendChild(name);
+      if (a.phone) {
+        var tel = document.createElement("a");
+        tel.className = "advisor__link";
+        tel.href = a.phoneLink || ("tel:" + a.phone.replace(/[^0-9+]/g, ""));
+        tel.textContent = a.phone;
+        wrap.appendChild(tel);
+      }
+      if (a.email) {
+        var mail = document.createElement("a");
+        mail.className = "advisor__link";
+        mail.href = "mailto:" + a.email;
+        mail.textContent = a.email;
+        wrap.appendChild(mail);
+      }
+      host.appendChild(wrap);
+    });
+  });
 
   if (cfg.social) {
     Object.keys(cfg.social).forEach(function (key) {

@@ -339,6 +339,16 @@ p { margin: 0 0 1.1em; }
 .info-list .k { font-size: .76rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
 .info-list .v { font-weight: 600; color: var(--navy); }
 
+/* Advisor contact blocks (contact card + footer) */
+.advisors-list { display: grid; gap: 20px; margin: 20px 0 6px; }
+.advisor__name { font-weight: 700; color: var(--navy); margin: 0 0 3px; font-size: 1.02rem; }
+.advisor__link { display: block; font-size: .95rem; color: var(--rose-gold-deep); }
+.advisor__link:hover { color: var(--navy); }
+.footer-advisors { display: grid; gap: 16px; margin-bottom: 6px; }
+.footer-advisors .advisor__name { color: #fff; font-size: .95rem; }
+.footer-advisors .advisor__link { color: #b7c4d2; font-size: .9rem; }
+.footer-advisors .advisor__link:hover { color: var(--rose); }
+
 /* ---------- Page header ---------- */
 .page-hero { background: var(--navy); color: #fff; padding: clamp(60px, 9vw, 110px) 0 clamp(48px, 7vw, 84px); }
 .page-hero h1 { color: #fff; margin-bottom: .25em; }

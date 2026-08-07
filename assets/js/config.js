@@ -13,10 +13,22 @@ window.SITE_CONFIG = {
   advisors: "Brent & Shannon",
   advisorsTitle: "Your Travel Advisors",
 
-  // --- Contact details (shown in header, footer, and contact page) ---
-  phone: "[PHONE]",                 // e.g. "(555) 123-4567"
-  phoneLink: "tel:+10000000000",    // e.g. "tel:+15551234567"
-  email: "[EMAIL]",                 // e.g. "brent@passportsandprosecco.com"
+  // --- Advisor contact details (shown in footer and on the contact page) ---
+  // Edit names/phones/emails here and they update everywhere automatically.
+  team: [
+    {
+      name: "Brent Beasley",
+      phone: "561-777-9911",
+      phoneLink: "tel:+15617779911",
+      email: "brent.beasley@cruiseplanners.com"
+    },
+    {
+      name: "Shannon Hamilton",
+      phone: "865-256-1400",
+      phoneLink: "tel:+18652561400",
+      email: "shannon.hamilton@cruiseplanners.com"
+    }
+  ],
 
   // --- Booking / quote link (buttons across the site point here) ---
   // Paste your Cruise Planners booking or quote-request URL here.
