@@ -1,0 +1,34 @@
+{
+  "_comment": "Hand-picked cruises to spotlight on the Featured Cruises page. Each 'url' links to the live booking page on Brent's Cruise Planners consumer site (brentbeasley.dreamingtotravel.com), where guests see current pricing and can book. Add/edit/remove entries below. Dates are YYYY-MM-DD. See README.",
+  "searchUrl": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/AdvancedSearch/",
+  "dealsUrl": "https://brentbeasley.dreamingtotravel.com/TravelDeals",
+  "cruises": [
+    {
+      "line": "Celebrity Cruises",
+      "ship": "Celebrity Xcel",
+      "nights": 6,
+      "departs": "2026-11-15",
+      "price": "From $1,045 / person",
+      "badge": "Featured",
+      "url": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/view/6-nights-celebrity-cruises---ocean-celebrity-xcel-11-15-26"
+    },
+    {
+      "line": "Norwegian Cruise Line",
+      "ship": "Norwegian Aqua",
+      "nights": 7,
+      "departs": "2026-12-20",
+      "price": "From $1,089 / person",
+      "badge": "Holiday Sailing",
+      "url": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/view/7-nights-norwegian-cruise-line-norwegian-aqua-12-20-26"
+    },
+    {
+      "line": "Norwegian Cruise Line",
+      "ship": "Norwegian Prima",
+      "nights": 7,
+      "departs": "2026-12-27",
+      "price": "See live pricing",
+      "badge": "New Year's Sailing",
+      "url": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/view/7-nights-norwegian-cruise-line-norwegian-prima-12-27-26"
+    }
+  ]
+}
