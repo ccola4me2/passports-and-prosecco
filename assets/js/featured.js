@@ -26,18 +26,24 @@
       host.innerHTML = cruises.length ? cruises.map(function (c) {
         var voyage = c.nights + (c.nights === 1 ? " night" : " nights") + " · Departs " + fmtDate(c.departs);
         var badge = c.badge ? '<span class="badge badge--signature">' + esc(c.badge) + "</span>" : "";
+        var photo = c.image
+          ? '<div class="deal-card__photo"><img src="' + esc(c.image) + '" alt="' + esc(c.line + " " + c.ship) + '" loading="lazy" />' + badge + "</div>"
+          : "";
         return (
-          '<article class="deal-card">' +
-            '<div class="deal-card__badges">' + badge + "</div>" +
-            '<p class="deal-card__brand">' + esc(c.line) + "</p>" +
-            "<h4>" + esc(c.ship) + "</h4>" +
-            '<div class="deal-card__meta">' +
-              '<div class="row"><span class="k">Voyage</span><span class="v">' + esc(voyage) + "</span></div>" +
-              (c.price ? '<div class="row"><span class="k">Fare</span><span class="v">' + esc(c.price) + "</span></div>" : "") +
-            "</div>" +
-            '<div class="deal-card__foot">' +
-              '<span class="deal-card__valid">Book direct online</span>' +
-              '<a class="btn btn--primary btn--sm" href="' + esc(c.url) + '" target="_blank" rel="noopener">View &amp; Book</a>' +
+          '<article class="deal-card deal-card--photo">' +
+            photo +
+            '<div class="deal-card__body">' +
+              (c.image ? "" : '<div class="deal-card__badges">' + badge + "</div>") +
+              '<p class="deal-card__brand">' + esc(c.line) + "</p>" +
+              "<h4>" + esc(c.ship) + "</h4>" +
+              '<div class="deal-card__meta">' +
+                '<div class="row"><span class="k">Voyage</span><span class="v">' + esc(voyage) + "</span></div>" +
+                (c.price ? '<div class="row"><span class="k">Fare</span><span class="v">' + esc(c.price) + "</span></div>" : "") +
+              "</div>" +
+              '<div class="deal-card__foot">' +
+                '<span class="deal-card__valid">Book direct online</span>' +
+                '<a class="btn btn--primary btn--sm" href="' + esc(c.url) + '" target="_blank" rel="noopener">View &amp; Book</a>' +
+              "</div>" +
             "</div>" +
           "</article>"
         );
