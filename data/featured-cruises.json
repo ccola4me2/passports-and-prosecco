@@ -20,7 +20,7 @@
       "departs": "2026-12-20",
       "price": "From $1,089 / person",
       "badge": "Holiday Sailing",
-      "image": "assets/images/cruises/norwegian-aqua.jpg",
+      "image": "assets/images/cruises/norwegian-aqua.jpg?v=2",
       "url": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/view/7-nights-norwegian-cruise-line-norwegian-aqua-12-20-26"
     },
     {
@@ -30,7 +30,7 @@
       "departs": "2026-12-27",
       "price": "See live pricing",
       "badge": "New Year's Sailing",
-      "image": "assets/images/cruises/norwegian-prima.jpg",
+      "image": "assets/images/cruises/norwegian-prima.jpg?v=2",
       "url": "https://brentbeasley.dreamingtotravel.com/CruiseSearch/view/7-nights-norwegian-cruise-line-norwegian-prima-12-27-26"
     }
   ]
