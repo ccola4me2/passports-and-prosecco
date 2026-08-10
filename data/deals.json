@@ -1,5 +1,5 @@
 {
-  "weekOf": "2026-08-03",
+  "weekOf": "2026-08-10",
   "featuredSupplier": "Royal Caribbean International",
   "brands": [
     {
@@ -8,7 +8,7 @@
       "featured": true,
       "deals": [
         {
-          "title": "Signature Exclusive: Specialty Dining for Two",
+          "title": "Specialty Dining for Two",
           "description": "Receive a Specialty Dining Experience for Two on select sailings.",
           "bookingWindow": "August 1–31, 2026",
           "sailingWindow": "3+ Night Balcony & above Bahamas, Bermuda, Caribbean or Mexico/West Coast sailings departing 10/1/26–3/31/27",
@@ -35,9 +35,9 @@
       "deals": [
         {
           "title": "Save $3,000 Per Couple",
-          "description": "Save $3,000 per couple on select 2026 cruises.",
-          "bookingWindow": "Now through August 10, 2026",
-          "sailingWindow": "Select 2026 River Cruises",
+          "description": "Save $3,000 per couple on select 2026 river cruises.",
+          "bookingWindow": "Now through October 12, 2026",
+          "sailingWindow": "Select 2026 river cruises",
           "badge": null
         }
       ]
@@ -61,7 +61,7 @@
       "deals": [
         {
           "title": "Early Saver Special",
-          "description": "Cruise Planners Exclusive Early Saver Special.",
+          "description": "Early Saver Special with the best available advance pricing.",
           "bookingWindow": "Now through September 30, 2026",
           "sailingWindow": "Sailings through April 2028 where Early Saver is available",
           "badge": "Cruise Planners Exclusive"
@@ -74,7 +74,7 @@
       "deals": [
         {
           "title": "$100 Onboard Credit",
-          "description": "Cruise Planners Exclusive $100 Onboard Credit.",
+          "description": "Receive a $100 Onboard Credit on select sailings.",
           "bookingWindow": "July 22 – August 31, 2026",
           "sailingWindow": "Select sailings through 2027",
           "badge": "Cruise Planners Exclusive"
@@ -102,7 +102,7 @@
           "title": "Early Booking Offer",
           "description": "Early Booking Offer for sailings booked at least 1 year in advance.",
           "bookingWindow": "Now through December 31, 2026",
-          "sailingWindow": "Any sailing at least 1 year in advance from the date the new booking is confirmed",
+          "sailingWindow": "Any sailing at least 1 year in advance from the date the booking is confirmed",
           "badge": null
         }
       ]
@@ -113,7 +113,7 @@
       "deals": [
         {
           "title": "1 Free Extra Night",
-          "description": "Signature Exclusive: Guests receive 1 free extra night on select 2026/2027 Globus Europe Tours.",
+          "description": "Guests receive 1 free extra night on select 2026/2027 Globus Europe tours.",
           "bookingWindow": "Now through December 31, 2027",
           "sailingWindow": "Select 2026/2027 Globus Europe Tours",
           "badge": "Signature Exclusive"
@@ -125,11 +125,11 @@
       "logo": "[HOLLAND AMERICA LOGO]",
       "deals": [
         {
-          "title": "Up to $300 Onboard Credit",
-          "description": "Cruise Planners Exclusive up to $300 Onboard Credit.",
-          "bookingWindow": "June 22 – August 7, 2026",
+          "title": "Save on Sunshine: Up to 40% Off + Free Kids' Fares",
+          "description": "Up to 40% off plus Free Kids' Fares and up to $400 Onboard Credit per stateroom on select sailings.",
+          "bookingWindow": "August 5 – August 31, 2026",
           "sailingWindow": "Select sailings through 2027",
-          "badge": "Cruise Planners Exclusive"
+          "badge": null
         }
       ]
     },
@@ -139,7 +139,7 @@
       "deals": [
         {
           "title": "Up to $250 Onboard Credit",
-          "description": "Cruise Planners Exclusive up to $250 Onboard Credit.",
+          "description": "Up to $250 Onboard Credit on select sailings.",
           "bookingWindow": "July 1 – August 31, 2026",
           "sailingWindow": "Select sailings through 2028",
           "badge": "Cruise Planners Exclusive"
@@ -165,7 +165,7 @@
       "deals": [
         {
           "title": "$250 Shipboard Credit Per Couple",
-          "description": "Signature Exclusive $250 Shipboard Credit per couple on select sailings. View sailings via 'Find a Cruise'.",
+          "description": "$250 Shipboard Credit per couple on select sailings. View sailings via 'Find a Cruise'.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "Select sailings, view via 'Find a Cruise'",
           "badge": "Signature Exclusive"
@@ -178,7 +178,7 @@
       "deals": [
         {
           "title": "Save Up to 30%",
-          "description": "Save up to 30% on select sailings; savings percentage depends on booking date, posted on Ponant's website.",
+          "description": "Save up to 30% on select sailings; savings depend on booking date and are posted on Ponant's website.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "Select sailings, varies by booking date",
           "badge": null
@@ -204,7 +204,7 @@
       "deals": [
         {
           "title": "$300 Shipboard Credit Per Suite",
-          "description": "Cruise Planners Exclusive $300 Shipboard Credit per suite on select sailings.",
+          "description": "Receive $300 Shipboard Credit per suite on select sailings.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "Select sailings through 2028",
           "badge": "Cruise Planners Exclusive"
@@ -230,7 +230,7 @@
       "deals": [
         {
           "title": "Save $250 or €250 Onboard Credit",
-          "description": "Cruise Planners Exclusive: save $250 or receive €250 Onboard Credit.",
+          "description": "Save $250 or receive €250 Onboard Credit.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "All 8+ Day Balcony & above sailings",
           "badge": "Cruise Planners Exclusive"
@@ -243,7 +243,7 @@
       "deals": [
         {
           "title": "$600 Shipboard Credit Per Couple",
-          "description": "Signature Exclusive $600 Shipboard Credit per couple on select sailings. See Special Sales for full details.",
+          "description": "$600 Shipboard Credit per couple on select sailings. See Special Sales for full details.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "Select sailings, see Special Sales for details",
           "badge": "Signature Exclusive"
@@ -256,7 +256,7 @@
       "deals": [
         {
           "title": "€300 Shipboard Credit Per Couple",
-          "description": "Signature Exclusive €300 Shipboard Credit per couple on 2026/2027 sailings. View via 'Find a Cruise'.",
+          "description": "€300 Shipboard Credit per couple on 2026/2027 sailings. View via 'Find a Cruise'.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "2026/2027 sailings, view via 'Find a Cruise'",
           "badge": "Signature Exclusive"
@@ -269,7 +269,7 @@
       "deals": [
         {
           "title": "$200 Shipboard Credit",
-          "description": "Signature Exclusive $200 Shipboard Credit on select sailings. View via 'Find a Cruise'.",
+          "description": "Receive $200 Shipboard Credit on select sailings. View via 'Find a Cruise'.",
           "bookingWindow": "Now through December 31, 2026",
           "sailingWindow": "Select sailings, view via 'Find a Cruise'",
           "badge": "Signature Exclusive"
