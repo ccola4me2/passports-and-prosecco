@@ -302,6 +302,16 @@ p { margin: 0 0 1.1em; }
 .deal-card__valid { font-size: .8rem; color: var(--muted); }
 .deal-card__valid.is-expired { color: var(--danger); font-weight: 600; }
 
+/* Sailings (Widgety) controls + ship banner */
+.sail-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 8px; }
+.sail-tabs { display: flex; flex-wrap: wrap; gap: 10px; }
+.sail-controls .deal-sort { margin-left: auto; }
+.sail-banner { position: relative; border-radius: var(--radius-lg); overflow: hidden; margin: 22px 0 8px; box-shadow: var(--shadow-sm); }
+.sail-banner img { width: 100%; height: clamp(150px, 26vw, 300px); object-fit: cover; display: block; }
+.sail-banner span { position: absolute; left: 20px; bottom: 16px; color: #fff; font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem); text-shadow: 0 2px 16px rgba(0,0,0,.5); }
+.sail-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,26,44,.6), rgba(12,26,44,0) 55%); }
+.sail-banner span { z-index: 1; }
+
 .deals-empty { text-align: center; padding: 60px 20px; color: var(--muted); }
 .deals-updated { font-size: .86rem; color: var(--muted); margin-top: 6px; }
 
