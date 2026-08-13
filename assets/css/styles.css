@@ -306,6 +306,12 @@ p { margin: 0 0 1.1em; }
 .sail-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 8px; }
 .sail-tabs { display: flex; flex-wrap: wrap; gap: 10px; }
 .sail-controls .deal-sort { margin-left: auto; }
+.sail-controls--search { margin-top: 14px; padding: 14px 16px; background: var(--ivory-warm); border: 1px solid var(--line); border-radius: var(--radius); gap: 12px; }
+.sail-controls--search .deal-sort { margin-left: 0; }
+.sail-search { flex: 1 1 240px; min-width: 200px; font-family: var(--sans); font-size: 1rem; padding: 11px 15px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.sail-search:focus, .sail-date:focus { outline: none; border-color: var(--rose-gold); box-shadow: 0 0 0 3px var(--rose-soft); }
+.sail-date { font-family: var(--sans); padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--navy); }
+.sail-count { font-size: .86rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
 .sail-banner { position: relative; border-radius: var(--radius-lg); overflow: hidden; margin: 22px 0 8px; box-shadow: var(--shadow-sm); }
 .sail-banner img { width: 100%; height: clamp(150px, 26vw, 300px); object-fit: cover; display: block; }
 .sail-banner span { position: absolute; left: 20px; bottom: 16px; color: #fff; font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem); text-shadow: 0 2px 16px rgba(0,0,0,.5); }

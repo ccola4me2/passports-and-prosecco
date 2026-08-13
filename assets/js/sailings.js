@@ -28,6 +28,12 @@
       '<div class="sail-tabs" data-line-tabs></div>' +
       '<label class="deal-sort">Ship <select data-ship-select><option>Loading…</option></select></label>' +
     '</div>' +
+    '<div class="sail-controls sail-controls--search">' +
+      '<input class="sail-search" type="search" placeholder="Search itineraries by destination or name…" data-sail-search aria-label="Search itineraries" />' +
+      '<label class="deal-sort">Destination <select data-region-filter><option value="">All</option></select></label>' +
+      '<label class="deal-sort">Departing after <input class="sail-date" type="date" data-date-filter aria-label="Departing on or after" /></label>' +
+      '<span class="sail-count" data-sail-count></span>' +
+    '</div>' +
     '<div data-ship-banner></div>' +
     '<div class="deals-grid" data-sailings-out><div class="deals-empty">Loading ships…</div></div>';
 
@@ -35,6 +41,31 @@
   var shipSel = app.querySelector("[data-ship-select]");
   var bannerEl = app.querySelector("[data-ship-banner]");
   var outEl = app.querySelector("[data-sailings-out]");
+  var searchEl = app.querySelector("[data-sail-search]");
+  var regionEl = app.querySelector("[data-region-filter]");
+  var dateEl = app.querySelector("[data-date-filter]");
+  var countEl = app.querySelector("[data-sail-count]");
+  var allSailings = [];
+  searchEl.addEventListener("input", applyFilter);
+  regionEl.addEventListener("change", applyFilter);
+  dateEl.addEventListener("change", applyFilter);
+
+  function applyFilter() {
+    var q = (searchEl.value || "").trim().toLowerCase();
+    var region = regionEl.value;
+    var after = dateEl.value ? new Date(dateEl.value + "T00:00:00") : null;
+    var list = allSailings.filter(function (s) {
+      var hay = (s.name || "") + " " + (s.regions || []).join(" ") + " " + (s.from || "") + " " + (s.to || "");
+      var okQ = !q || hay.toLowerCase().indexOf(q) !== -1;
+      var okR = !region || (s.regions || []).indexOf(region) !== -1;
+      var okD = !after || (s.dateFrom && new Date(s.dateFrom) >= after);
+      return okQ && okR && okD;
+    });
+    if (countEl) countEl.textContent = list.length + (list.length === 1 ? " sailing" : " sailings");
+    outEl.innerHTML = list.length
+      ? list.map(sailingCard).join("")
+      : '<div class="deals-empty">No sailings match your search. Try another destination, pick a different ship, or <a href="contact.html">ask us</a> to find one.</div>';
+  }
 
   function currentLine() {
     return state.lines.filter(function (l) { return l.id === state.lineId; })[0] || null;
@@ -106,9 +137,18 @@
         if (data.ship && data.ship.image) {
           bannerEl.innerHTML = '<div class="sail-banner"><img src="' + esc(data.ship.image) + '" alt="' + esc(data.ship.title || "") + '" loading="lazy" /><span>' + esc(data.ship.title || "") + "</span></div>";
         }
-        var sailings = data.sailings || [];
-        outEl.innerHTML = sailings.length ? sailings.map(sailingCard).join("") :
-          '<div class="deals-empty">No upcoming sailings listed for this ship right now. <a href="contact.html">Contact us</a> and we\'ll find one.</div>';
+        allSailings = data.sailings || [];
+        var regions = {};
+        allSailings.forEach(function (s) { (s.regions || []).forEach(function (r) { regions[r] = 1; }); });
+        regionEl.innerHTML = '<option value="">All</option>' + Object.keys(regions).sort().map(function (r) {
+          return '<option value="' + esc(r) + '">' + esc(r) + "</option>";
+        }).join("");
+        if (!allSailings.length) {
+          if (countEl) countEl.textContent = "";
+          outEl.innerHTML = '<div class="deals-empty">No upcoming sailings listed for this ship right now. <a href="contact.html">Contact us</a> and we\'ll find one.</div>';
+          return;
+        }
+        applyFilter();
       })
       .catch(function () {
         outEl.innerHTML = '<div class="deals-empty">We couldn\'t load sailings just now. Please refresh, or <a href="contact.html">contact us</a> and we\'ll pull them for you.</div>';
