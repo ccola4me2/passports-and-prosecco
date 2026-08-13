@@ -40,7 +40,7 @@ window.SITE_CONFIG = {
   // ghlCruiseFieldKey: the URL key of your "Cruise of Interest" field. It must
   // EXACTLY match the field's key in GHL for the sailing details to pre-fill.
   ghlFormId: "TS38U9Knz8aGxWE5JDUA",
-  ghlCruiseFieldKey: "cruise_of_interest",
+  ghlCruiseFieldKey: "contact.cruise_of_interest",
 
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
   affiliation: "An independent affiliate of Cruise Planners.",

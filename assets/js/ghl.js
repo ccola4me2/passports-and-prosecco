@@ -23,7 +23,13 @@
 
   var base = "https://api.leadconnectorhq.com/widget/form/" + encodeURIComponent(formId);
   var qs = new URLSearchParams();
-  if (cruise) qs.set(fieldKey, cruise);
+  if (cruise) {
+    qs.set(fieldKey, cruise);
+    // Also send the key without the "contact." prefix (and vice versa) so it
+    // matches whichever form GHL expects.
+    var alt = fieldKey.indexOf("contact.") === 0 ? fieldKey.slice(8) : "contact." + fieldKey;
+    qs.set(alt, cruise);
+  }
   // Forward common contact params too, if present.
   ["name", "first_name", "last_name", "email", "phone"].forEach(function (k) {
     var v = params.get(k);
