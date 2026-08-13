@@ -39,8 +39,12 @@ window.SITE_CONFIG = {
   // ghlFormId: the ID from your form embed URL (.../widget/form/THIS_PART).
   // ghlCruiseFieldKey: the URL key of your "Cruise of Interest" field. It must
   // EXACTLY match the field's key in GHL for the sailing details to pre-fill.
+  // ghlCruiseFieldKey: the form field's "Query Key" (its data-q value in GHL).
+  // For the current Cruise of Interest field that is "multi_line_4c4s". You can
+  // rename it in GHL (form builder > field > Query Key) to something friendlier
+  // like "cruise_of_interest" and then change it here to match.
   ghlFormId: "TS38U9Knz8aGxWE5JDUA",
-  ghlCruiseFieldKey: "contact.cruise_of_interest",
+  ghlCruiseFieldKey: "multi_line_4c4s",
 
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
   affiliation: "An independent affiliate of Cruise Planners.",

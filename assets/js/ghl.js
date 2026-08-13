@@ -24,11 +24,11 @@
   var base = "https://api.leadconnectorhq.com/widget/form/" + encodeURIComponent(formId);
   var qs = new URLSearchParams();
   if (cruise) {
-    qs.set(fieldKey, cruise);
-    // Also send the key without the "contact." prefix (and vice versa) so it
-    // matches whichever form GHL expects.
-    var alt = fieldKey.indexOf("contact.") === 0 ? fieldKey.slice(8) : "contact." + fieldKey;
-    qs.set(alt, cruise);
+    // GHL prefills by the field's query key (data-q). Send that plus friendly
+    // aliases so it still works if you rename the field's Query Key later.
+    [fieldKey, "cruise_of_interest", "contact.cruise_of_interest"].forEach(function (k) {
+      if (k) qs.set(k, cruise);
+    });
   }
   // Forward common contact params too, if present.
   ["name", "first_name", "last_name", "email", "phone"].forEach(function (k) {
