@@ -71,7 +71,8 @@
     var regions = (s.regions || []).map(function (r) { return '<span class="badge badge--live">' + esc(r) + "</span>"; }).join("");
     var avail = s.availability ? '<span class="badge badge--signature">' + esc(String(s.availability).replace(/_/g, " ")) + "</span>" : "";
     var base = bookingUrl();
-    var link = base.indexOf("contact") !== -1 ? "contact.html?deal=" + encodeURIComponent((s.ship ? s.ship + ": " : "") + s.name) : base;
+    var summary = [s.line, s.ship, s.name, s.dateFrom ? "departs " + fmtDate(s.dateFrom) : ""].filter(Boolean).join(" · ");
+    var link = base.indexOf("contact") !== -1 ? "contact.html?cruise_of_interest=" + encodeURIComponent(summary) : base;
     return (
       '<article class="deal-card">' +
         '<div class="deal-card__badges">' + avail + regions + "</div>" +

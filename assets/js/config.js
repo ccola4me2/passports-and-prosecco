@@ -35,6 +35,13 @@ window.SITE_CONFIG = {
   // Leave as "contact.html" to send people to the on-site contact form.
   bookingUrl: "contact.html",
 
+  // --- GoHighLevel (LeadConnector) request form ---
+  // ghlFormId: the ID from your form embed URL (.../widget/form/THIS_PART).
+  // ghlCruiseFieldKey: the URL key of your "Cruise of Interest" field. It must
+  // EXACTLY match the field's key in GHL for the sailing details to pre-fill.
+  ghlFormId: "TS38U9Knz8aGxWE5JDUA",
+  ghlCruiseFieldKey: "cruise_of_interest",
+
   // --- Cruise Planners affiliation line (shown in footer + contact) ---
   affiliation: "An independent affiliate of Cruise Planners.",
   floridaSeller: "Fla. Seller of Travel Reg. No. TI128169",
