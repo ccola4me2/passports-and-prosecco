@@ -306,12 +306,19 @@ p { margin: 0 0 1.1em; }
 .sail-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 8px; }
 .sail-tabs { display: flex; flex-wrap: wrap; gap: 10px; }
 .sail-controls .deal-sort { margin-left: auto; }
-.sail-controls--search { margin-top: 14px; padding: 14px 16px; background: var(--ivory-warm); border: 1px solid var(--line); border-radius: var(--radius); gap: 12px; }
-.sail-controls--search .deal-sort { margin-left: 0; }
-.sail-search { flex: 1 1 240px; min-width: 200px; font-family: var(--sans); font-size: 1rem; padding: 11px 15px; border-radius: 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
-.sail-search:focus, .sail-date:focus { outline: none; border-color: var(--rose-gold); box-shadow: 0 0 0 3px var(--rose-soft); }
-.sail-date { font-family: var(--sans); padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--navy); }
-.sail-count { font-size: .86rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
+/* Mode toggle */
+.sail-modes { display: flex; gap: 10px; margin-bottom: 20px; }
+/* Quick Cruise Search form */
+.cruise-search { background: var(--navy); border-radius: var(--radius-lg); padding: 26px clamp(18px, 3vw, 30px); box-shadow: var(--shadow-md); }
+.cruise-search__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cruise-search__field { display: flex; flex-direction: column; gap: 7px; }
+.cruise-search__field span { color: var(--rose); font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.cruise-search__field select { font-family: var(--sans); font-size: 1rem; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.18); background: #fff; color: var(--ink); cursor: pointer; }
+.cruise-search__field select:focus { outline: none; box-shadow: 0 0 0 3px var(--rose-soft); }
+.cruise-search__go { margin-top: 20px; width: 100%; justify-content: center; font-size: 1.05rem; padding: 15px; }
+.sail-note { font-size: .9rem; color: var(--muted); margin: 18px 0 8px; }
+@media (max-width: 760px) { .cruise-search__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .cruise-search__grid { grid-template-columns: 1fr; } }
 .sail-banner { position: relative; border-radius: var(--radius-lg); overflow: hidden; margin: 22px 0 8px; box-shadow: var(--shadow-sm); }
 .sail-banner img { width: 100%; height: clamp(150px, 26vw, 300px); object-fit: cover; display: block; }
 .sail-banner span { position: absolute; left: 20px; bottom: 16px; color: #fff; font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2rem); text-shadow: 0 2px 16px rgba(0,0,0,.5); }
