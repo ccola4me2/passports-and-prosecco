@@ -22,4 +22,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://link.msgsndr.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://assets.widgety.co.uk; connect-src 'self' https://api.leadconnectorhq.com; frame-src https://api.leadconnectorhq.com https://link.msgsndr.com; form-action 'self' https://formspree.io; base-uri 'self'; frame-ancestors 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://link.msgsndr.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.leadconnectorhq.com; frame-src https://api.leadconnectorhq.com https://link.msgsndr.com; form-action 'self' https://formspree.io; base-uri 'self'; frame-ancestors 'self'; object-src 'none'
