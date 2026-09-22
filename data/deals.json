@@ -1,5 +1,5 @@
 {
-  "weekOf": "2026-08-24",
+  "weekOf": "2026-09-21",
   "featuredSupplier": "Royal Caribbean International",
   "brands": [
     {
@@ -10,8 +10,8 @@
         {
           "title": "Specialty Dining for Two",
           "description": "Receive a Specialty Dining Experience for Two on select sailings.",
-          "bookingWindow": "August 1–31, 2026",
-          "sailingWindow": "3+ Night Balcony & above Bahamas, Bermuda, Caribbean or Mexico/West Coast sailings departing 10/1/26–3/31/27",
+          "bookingWindow": "September 1–30, 2026",
+          "sailingWindow": "3+ Night Balcony & above Bahamas, Bermuda, Caribbean or Mexico/West Coast sailings departing 11/1/26–4/30/27",
           "badge": "Signature Exclusive"
         }
       ]
@@ -69,27 +69,14 @@
       ]
     },
     {
-      "brand": "Celebrity Cruises",
-      "logo": "[CELEBRITY CRUISES LOGO]",
-      "deals": [
-        {
-          "title": "$100 Onboard Credit",
-          "description": "Receive a $100 Onboard Credit on select sailings.",
-          "bookingWindow": "July 22 – August 31, 2026",
-          "sailingWindow": "Select sailings through 2027",
-          "badge": "Cruise Planners Exclusive"
-        }
-      ]
-    },
-    {
       "brand": "Cunard",
       "logo": "[CUNARD LOGO]",
       "deals": [
         {
-          "title": "Set Sail & Save",
-          "description": "Set Sail & Save promotion on select sailings.",
-          "bookingWindow": "June 4 – August 26, 2026",
-          "sailingWindow": "Select sailings through 2028",
+          "title": "Fall Savings Event",
+          "description": "Fall Savings Event on select sailings.",
+          "bookingWindow": "September 10 – December 8, 2026",
+          "sailingWindow": "Select sailings through 2029",
           "badge": null
         }
       ]
@@ -125,24 +112,11 @@
       "logo": "[HOLLAND AMERICA LOGO]",
       "deals": [
         {
-          "title": "Save on Sunshine: Up to 40% Off + Free Kids' Fares",
-          "description": "Up to 40% off plus Free Kids' Fares and up to $400 Onboard Credit per stateroom on select sailings.",
-          "bookingWindow": "August 5 – August 31, 2026",
-          "sailingWindow": "Select sailings through 2027",
-          "badge": null
-        }
-      ]
-    },
-    {
-      "brand": "MSC Cruises",
-      "logo": "[MSC CRUISES LOGO]",
-      "deals": [
-        {
-          "title": "Up to $250 Onboard Credit",
-          "description": "Up to $250 Onboard Credit on select sailings.",
-          "bookingWindow": "July 1 – August 31, 2026",
-          "sailingWindow": "Select sailings through 2028",
-          "badge": "Cruise Planners Exclusive"
+          "title": "Up to $200 Onboard Credit",
+          "description": "Signature Partner of the Month: up to $200 Onboard Credit on select 2027 sailings. Grand Voyages and Grand Voyage segments excluded.",
+          "bookingWindow": "September 1–30, 2026",
+          "sailingWindow": "Select 2027 Cruises & Cruisetours",
+          "badge": "Signature Exclusive"
         }
       ]
     },
@@ -190,9 +164,9 @@
       "logo": "[PRINCESS CRUISES LOGO]",
       "deals": [
         {
-          "title": "Cyber Summer Sale",
-          "description": "Cyber Summer Sale on select sailings.",
-          "bookingWindow": "July 15 – August 31, 2026",
+          "title": "Limited Time Offer Sale",
+          "description": "Limited Time Offer Sale on select sailings.",
+          "bookingWindow": "September 1 – October 12, 2026",
           "sailingWindow": "Select sailings through 2027",
           "badge": null
         }
